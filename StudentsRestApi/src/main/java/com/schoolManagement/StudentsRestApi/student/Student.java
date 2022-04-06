@@ -10,7 +10,7 @@ public class Student {
     private LocalDate birth_date;
     private int age;
     private int admit_year;
-    private Long contact;
+    private int contact;
     private String address;
 
     public Student() {
@@ -24,7 +24,7 @@ public class Student {
             LocalDate birth_date,
             int age,
             int admit_year,
-            Long contact,
+            int contact,
             String address
     )
     {
@@ -85,11 +85,11 @@ public class Student {
         this.admit_year = admit_year;
     }
 
-    public Long getContact() {
+    public int getContact() {
         return contact;
     }
 
-    public void setContact(Long contact) {
+    public void setContact(int contact) {
         this.contact = contact;
     }
 
