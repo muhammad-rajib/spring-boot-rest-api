@@ -1,6 +1,8 @@
 package com.schoolManagement.StudentsRestApi.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,8 +41,9 @@ public class StudentController {
     }
 
     @PostMapping
-    public void registerNewStudent(@RequestBody Student student) {
+    public ResponseEntity registerNewStudent(@RequestBody Student student) {
         studentServices.addNewStudent(student);
+        return new ResponseEntity("Successfully created", HttpStatus.CREATED);
     }
 
     @PutMapping(path = "{studentId}")
