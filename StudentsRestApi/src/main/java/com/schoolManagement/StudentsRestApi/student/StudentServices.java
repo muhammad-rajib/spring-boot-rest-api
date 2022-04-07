@@ -19,4 +19,8 @@ public class StudentServices {
     public List<Student> getStudent() {
         return studentDBRepository.findAll();
     }
+
+    public void addNewStudent(Student student) {
+        studentDBRepository.save(student);
+    }
 }
