@@ -47,11 +47,12 @@ public class StudentController {
     }
 
     @PutMapping(path = "{studentId}")
-    public void updateStudent(
+    public ResponseEntity updateStudent(
             @PathVariable("studentId") Long studentId,
             @RequestBody Student student
     ) {
         studentServices.updateStudent(studentId, student);
+        return new ResponseEntity("Successfully updated", HttpStatus.OK);
     }
 
     @DeleteMapping(path = "{StudentId}")
