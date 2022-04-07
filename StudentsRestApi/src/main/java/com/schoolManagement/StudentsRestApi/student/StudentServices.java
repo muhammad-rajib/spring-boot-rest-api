@@ -14,15 +14,18 @@ public class StudentServices {
     private final StudentDBRepository studentDBRepository;
 
     @Autowired
-    public StudentServices(StudentDBRepository studentDBRepository) {
+    public StudentServices(StudentDBRepository studentDBRepository)
+    {
         this.studentDBRepository = studentDBRepository;
     }
 
-    public List<Student> getStudent() {
+    public List<Student> getStudent()
+    {
         return studentDBRepository.findAll();
     }
 
-    public Student getStudentById(Long studentId) {
+    public Student getStudentById(Long studentId)
+    {
         Student student = studentDBRepository.findById(studentId)
                 .orElseThrow(() -> new IllegalStateException(
                         "Student with id " + studentId + " does not exist"
@@ -30,8 +33,8 @@ public class StudentServices {
         return student;
     }
 
-    public void addNewStudent(Student student) {
-
+    public void addNewStudent(Student student)
+    {
         Optional<Student> studentOptional = studentDBRepository.findByEmail(student.getEmail());
 
         if (studentOptional.isPresent()) {
@@ -73,8 +76,8 @@ public class StudentServices {
         }
     }
 
-    public void deleteStudent(Long id) {
-
+    public void deleteStudent(Long id)
+    {
         boolean isExist = studentDBRepository.existsById(id);
 
         if (!isExist) {
