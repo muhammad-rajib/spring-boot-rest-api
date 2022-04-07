@@ -3,7 +3,7 @@ package com.schoolManagement.StudentsRestApi.student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +30,39 @@ public class StudentServices {
             throw new IllegalStateException("Email already exist");
         }
         studentDBRepository.save(student);
+    }
+
+    @Transactional
+    public void updateStudent(
+            Long studentId,
+            Student updateStudentRecord
+    )
+    {
+        Student currentStudent = studentDBRepository.findById(studentId)
+                .orElseThrow(() -> new IllegalStateException(
+                        "Student with id " + studentId + " does not exist"
+                ));
+
+        // name
+        if (updateStudentRecord.getName() != null) {
+            currentStudent.setName(updateStudentRecord.getName());
+        }
+        // department
+        if (updateStudentRecord.getDepartment() != null) {
+            currentStudent.setDepartment(updateStudentRecord.getDepartment());
+        }
+        // birthdate
+        if (updateStudentRecord.getBirth_date() != null) {
+            currentStudent.setBirth_date(updateStudentRecord.getBirth_date());
+        }
+        // admit year
+        if (updateStudentRecord.getAdmit_year() != 0) {
+            currentStudent.setAdmit_year(updateStudentRecord.getAdmit_year());
+        }
+        // address
+        if (updateStudentRecord.getAddress() != null) {
+            currentStudent.setAddress(updateStudentRecord.getAddress());
+        }
     }
 
     public void deleteStudent(Long id) {
