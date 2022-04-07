@@ -20,6 +20,7 @@ public class Student {
             generator = "student_sequence"
     )
 
+    @Column(name = "student_id")
     private Long id;
     private String name;
     private String department;
@@ -49,6 +50,7 @@ public class Student {
         this.id = id;
         this.name = name;
         this.department = department;
+        this.birth_date = birth_date;
         this.admit_year = admit_year;
         this.email = email;
         this.address = address;
@@ -118,13 +120,4 @@ public class Student {
         this.address = address;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                "name=" + name + '\'' +
-                "department=" + department + '\'' +
-                "admitYear=" + admit_year +
-                "}";
-    }
 }
