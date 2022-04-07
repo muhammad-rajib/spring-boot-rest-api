@@ -2,6 +2,7 @@ package com.schoolManagement.StudentsRestApi.student;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.Period;
 
 
 @Entity
@@ -23,7 +24,10 @@ public class Student {
     private String name;
     private String department;
     private LocalDate birth_date;
+
+    @Transient
     private int age;
+
     private int admit_year;
     private int contact;
     private String address;
@@ -37,7 +41,6 @@ public class Student {
             String name,
             String department,
             LocalDate birth_date,
-            int age,
             int admit_year,
             int contact,
             String address
@@ -46,7 +49,6 @@ public class Student {
         this.id = id;
         this.name = name;
         this.department = department;
-        this.age = age;
         this.admit_year = admit_year;
         this.contact = contact;
         this.address = address;
@@ -77,7 +79,7 @@ public class Student {
     }
 
     public int getAge() {
-        return age;
+        return Period.between(this.birth_date, LocalDate.now()).getYears();
     }
 
     public void setAge(int age) {
