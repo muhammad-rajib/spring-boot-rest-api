@@ -29,7 +29,7 @@ public class Student {
     private int age;
 
     private int admit_year;
-    private int contact;
+    private int email;
     private String address;
 
     public Student() {
@@ -42,7 +42,7 @@ public class Student {
             String department,
             LocalDate birth_date,
             int admit_year,
-            int contact,
+            int email,
             String address
     )
     {
@@ -50,7 +50,7 @@ public class Student {
         this.name = name;
         this.department = department;
         this.admit_year = admit_year;
-        this.contact = contact;
+        this.email = email;
         this.address = address;
     }
 
@@ -102,12 +102,12 @@ public class Student {
         this.admit_year = admit_year;
     }
 
-    public int getContact() {
-        return contact;
+    public int getEmail() {
+        return email;
     }
 
-    public void setContact(int contact) {
-        this.contact = contact;
+    public void setEmail(int email) {
+        this.email = email;
     }
 
     public String getAddress() {
