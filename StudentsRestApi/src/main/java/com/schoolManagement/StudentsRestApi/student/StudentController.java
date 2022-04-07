@@ -9,6 +9,17 @@ import java.util.List;
 
 
 @RestController
+@RequestMapping(path = "api/v1/home")
+class HomeUrl {
+
+    @GetMapping
+    public String homePage() {
+        return "Welcome to School Management System !!!";
+    }
+}
+
+
+@RestController
 @RequestMapping(path = "api/v1/student")
 public class StudentController {
 
