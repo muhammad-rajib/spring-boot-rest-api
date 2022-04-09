@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/v1/home")
-class HomeUrl {
+class HomePage {
 
     @GetMapping
     public ResponseEntity<String> homePage() {
