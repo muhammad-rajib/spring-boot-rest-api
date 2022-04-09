@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -35,39 +34,22 @@ public class StudentController {
     }
 
 
-    @GetMapping
+    /*@GetMapping
     public ResponseEntity<List<StudentResponse>> getStudents()
     {
-        List<StudentResponse> returnLst = new ArrayList<>();
-
         List<Student> stdLst = studentServices.getStudent();
-        for (Student student : stdLst) {
-            StudentResponse std = new StudentResponse(
-                    student.getId(),
-                    student.getName(),
-                    student.getDepartment(),
-                    student.getBirth_date(),
-                    student.getAdmit_year(),
-                    student.getAddress()
-            );
-            returnLst.add(std);
-        }
+
+        List<StudentResponse> returnLst = Utils.MultiObjToJson(stdLst);
         return new ResponseEntity<>(returnLst, HttpStatus.OK);
-    }
+    }*/
 
 
     @GetMapping(path = "{studentId}")
     public ResponseEntity<StudentResponse> getStudentById(@PathVariable("studentId") Long studentId)
     {
         Student student = studentServices.getStudentById(studentId);
-        StudentResponse std = new StudentResponse(
-                student.getId(),
-                student.getName(),
-                student.getDepartment(),
-                student.getBirth_date(),
-                student.getAdmit_year(),
-                student.getAddress()
-        );
+
+        StudentResponse std = Utils.SingleObjToJson(student);
         return new ResponseEntity<>(std, HttpStatus.FOUND);
     }
 
