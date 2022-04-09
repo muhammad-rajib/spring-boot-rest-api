@@ -34,14 +34,14 @@ public class StudentController {
     }
 
 
-    /*@GetMapping
+    @GetMapping
     public ResponseEntity<List<StudentResponse>> getStudents()
     {
         List<Student> stdLst = studentServices.getStudent();
 
         List<StudentResponse> returnLst = Utils.MultiObjToJson(stdLst);
         return new ResponseEntity<>(returnLst, HttpStatus.OK);
-    }*/
+    }
 
 
     @GetMapping(path = "{studentId}")

@@ -18,7 +18,7 @@ public class Utils
         );
     }
 
-    /*public static List<StudentResponse> MultiObjToJson(List<Student> stdLst) {
+    public static List<StudentResponse> MultiObjToJson(List<Student> stdLst) {
 
         List<StudentResponse> returnLst = new ArrayList<>();
 
@@ -35,5 +35,5 @@ public class Utils
         }
 
         return returnLst;
-    }*/
+    }
 }
